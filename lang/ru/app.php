@@ -1,0 +1,78 @@
+<?php
+
+return [
+    'appName' => null,
+    'search' => 'Поиск',
+    'message' => 'Сообщение',
+    'messages' => 'Сообщения',
+    'lang' => 'Язык',
+    'estate' => 'поместье',
+    'estates' => 'Поместья',
+    'type' => 'Тип',
+    'types' => 'Тип',
+    'location' => 'Местоположение',
+    'locations' => 'Места',
+    'sort' => 'Сортировать',
+    'perPage' => 'На страницу',
+    'all' => 'Все',
+    'filter' => 'Фильтр',
+    'clear' => 'Очистить',
+    'new' => 'Новый',
+    'pending' => 'В ожидании',
+//    'newToOld' => 'New to old',
+//    'oldToNew' => 'Old to new',
+//    'lowToHigh' => 'Low to high',
+//    'highToLow' => 'High to low',
+    'similar' => 'Похожий',
+
+    'login' => 'Войти',
+    'register' => 'Зарегистрироваться',
+    'logout' => 'Выход',
+    'name' => 'Имя',
+    'username' => 'Имя пользователя',
+    'password' => 'Пароль',
+    'passwordConfirmation' => 'Подтверждение пароля',
+
+    'email' => 'Электронная почта',
+    'phone' => 'Телефон',
+    'contact' => 'Контакт',
+
+    'create' => 'Добавить',
+    'store' => 'Сохранить',
+    'store-response' => '<b>:имя</b> добавлено!',
+    'edit' => 'Редактировать',
+    'update' => 'Обновление',
+    'update-response' => '<b>:имя</b> обновлено!',
+    'delete' => 'Удалить',
+    'cancel' => 'Отмена',
+    'delete-question' => 'Вы уверены, что хотите удалить  <b>:имя</b>?',
+    'delete-response' => '<b>:имя</b> удалено!',
+
+    'news' => 'Новости',
+    'populars' => 'Популярное',
+    'popular' => 'Популярный',
+    'recommends' => 'Рекомендует',
+    'recommend' => 'Рекомендовать',
+    'total' => 'Итого',
+
+    'users' => 'Пользователи',
+    'user' => 'Пользователь',
+
+    'about-us' => 'О нас',
+
+    'password-confirmation' => 'Подтверждение пароля',
+
+    'error' => 'Упс! Что-то пошло не так.',
+
+    'not-found' => '<b>:имя</b> не найдено!',
+    'myPosts' => 'Мои сообщения',
+    'others' => 'Другие',
+
+//    'probeg' => 'Probeg',
+//    'vin_code' => 'Barcode',
+    'description' => 'Описание',
+    'price' => 'Цена',
+//    'credit' => 'Кредит',
+//    'change' => 'Изменить',
+    'image' => 'Изображение',
+];
