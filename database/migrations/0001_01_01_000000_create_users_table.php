@@ -20,7 +20,6 @@ return new class extends Migration
             $table->unsignedInteger('phone')->unique();
             $table->string('image')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

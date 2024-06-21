@@ -19,9 +19,8 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'username' => fake()->unique()->userName(),
+            'phone' => rand(61000000, 65999999),
             'password' => bcrypt('password'),
-            'remember_token' => Str::random(10),
         ];
     }
 }

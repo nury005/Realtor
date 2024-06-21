@@ -8,7 +8,7 @@
             @lang('app.dashboard')
         </a>
         <i class="bi-chevron-right small"></i>
-        <a href="{{ route('admin.citizens.index') }}" class="text-decoration-none green">
+        <a class="text-decoration-none green">
             @lang('app.citizens')
         </a>
         <i class="bi-chevron-right small"></i>

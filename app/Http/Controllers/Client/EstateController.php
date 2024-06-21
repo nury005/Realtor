@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
+use App\Http\Controllers\Controller;
 use App\Models\Type;
 use App\Models\Location;
 use App\Models\Estate;
@@ -21,7 +22,7 @@ class EstateController extends Controller
             'locations' => 'nullable|array|min:0',
             'locations.*' => 'nullable|integer|min:1',
             'page' => 'nullable|integer|min:1',
-           'perPage' => 'nullable|integer|in:15,30,60,120',
+            'perPage' => 'nullable|integer|in:15,30,60,120',
         ]);
 
 
@@ -264,4 +265,3 @@ class EstateController extends Controller
         ]);
     }
 }
-

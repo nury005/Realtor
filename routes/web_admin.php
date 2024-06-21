@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\CitizenController;
+
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -24,12 +23,10 @@ Route::controller(LoginController::class)
         Route::post('/logout', 'destroy')->name('logout');
     });
 
-Route::middleware('auth', 'admin')
+Route::middleware('auth')
     ->prefix('/admin')
     ->name('admin.')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::resource('citizens', CitizenController::class);
-        Route::resource('notes', NoteController::class);
     });

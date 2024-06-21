@@ -4,24 +4,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
             <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">@lang('app.dashboard')</a></li>
-            <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.citizens.index') }}">@lang('app.citizens')</a></li>
-            <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.notes.index') }}">@lang('app.notes')</a></li>
+            <li id="menu" class="nav-item"><a class="nav-link">@lang('app.citizens')</a></li>
+            <li id="menu" class="nav-item"><a class="nav-link" >
+                                              {{--href="{{ route('admin.notes.index') }}">@lang('app.notes')--}}
+                </a></li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link" data-bs-toggle="dropdown">@lang('app.lang') <i
                             class="bi bi-translate"></i></a>
                 <div class="dropdown-menu dropdown-menu-end shadow" style="z-index: 2050 !important;">
-                    <a id="a11" class="dropdown-item" href="{{ route('language', 'tk') }}"><img
-                                class="pe-1" height="16"
-                                src="{{asset('img/flag/tkm.png')}}">
-                        @lang('app.tkm')</a>
-                    <a id="a22" class="dropdown-item" href="{{ route('language', 'ru') }}"><img
-                                class="pe-1" height="16"
-                                src="{{asset('img/flag/rus.png')}}">
-                        @lang('app.rus')</a>
-                    <a id="a33" class="dropdown-item" href="{{ route('language', 'en') }}"><img
-                                class="pe-1" height="16"
-                                src="{{asset('img/flag/eng.png')}}">
-                        @lang('app.eng')</a>
+                    {{--<a id="a11" class="dropdown-item" href="{{ route('language', 'tk') }}"><img--}}
+                                {{--class="pe-1" height="16"--}}
+                                {{--src="{{asset('img/flag/tkm.png')}}">--}}
+                        {{--@lang('app.tkm')</a>--}}
+                    {{--<a id="a22" class="dropdown-item" href="{{ route('language', 'ru') }}"><img--}}
+                                {{--class="pe-1" height="16"--}}
+                                {{--src="{{asset('img/flag/rus.png')}}">--}}
+                        {{--@lang('app.rus')</a>--}}
+                    {{--<a id="a33" class="dropdown-item" href="{{ route('language', 'en') }}"><img--}}
+                                {{--class="pe-1" height="16"--}}
+                                {{--src="{{asset('img/flag/eng.png')}}">--}}
+                        {{--@lang('app.eng')</a>--}}
                 </div>
             </li>
             <li class="nav-item dropdown">

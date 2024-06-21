@@ -107,16 +107,16 @@
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="#contact">@lang('app.contact_us')</a></li>
-                <li class="dropdown"><a href="#"><span>@lang('app.lang')</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a class="nav-link scrollto" href="{{ route('language', 'tk') }}">@lang('app.tkm') <img height="16"
-                                                                                                                    src="{{asset('img/flag/tkm.png')}}"></a></li>
-                        <li><a class="nav-link scrollto" href="{{ route('language', 'ru') }}">@lang('app.rus') <img height="16"
-                                                                                                                    src="{{asset('img/flag/rus.png')}}"></a></li>
-                        <li><a class="nav-link scrollto" href="{{ route('language', 'en') }}">@lang('app.eng') <img height="16"
-                                                                                                                    src="{{asset('img/flag/eng.png')}}"></a></li>
-                    </ul>
-                </li>
+                {{--<li class="dropdown"><a href="#"><span>@lang('app.lang')</span> <i class="bi bi-chevron-down"></i></a>--}}
+                    {{--<ul>--}}
+                        {{--<li><a class="nav-link scrollto" href="{{ route('language', 'tk') }}">@lang('app.tkm') <img height="16"--}}
+                                                                                                                    {{--src="{{asset('img/flag/tkm.png')}}"></a></li>--}}
+                        {{--<li><a class="nav-link scrollto" href="{{ route('language', 'ru') }}">@lang('app.rus') <img height="16"--}}
+                                                                                                                    {{--src="{{asset('img/flag/rus.png')}}"></a></li>--}}
+                        {{--<li><a class="nav-link scrollto" href="{{ route('language', 'en') }}">@lang('app.eng') <img height="16"--}}
+                                                                                                                    {{--src="{{asset('img/flag/eng.png')}}"></a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
 
                 <li><a class="getstarted scrollto" href="#about">@lang('app.get')</a></li>
             </ul>

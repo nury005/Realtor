@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             UserSeeder::class,
         ]);
-        User::factory(10)->create();
+        User::factory()->count(10)->create();
         Estate::factory(50)->create();
-        \App\Models\Citizen::factory()->count(50)->create();
+
     }
 }
 

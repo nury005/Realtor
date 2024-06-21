@@ -14,7 +14,7 @@
 
                     <div class="mb-3">
                         <label for="username" class="form-label">@lang('app.username') <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" required autofocus>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="phone" required autofocus>
                         @error('username')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
