@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
             <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">@lang('app.dashboard')</a></li>
-            <li id="menu" class="nav-item"><a class="nav-link">@lang('app.citizens')</a></li>
+            <li id="menu" class="nav-item"><a class="nav-link"  href="{{ route('admin.estates.index') }}">@lang('app.estates')</a></li>
             <li id="menu" class="nav-item"><a class="nav-link" >
                                               {{--href="{{ route('admin.notes.index') }}">@lang('app.notes')--}}
                 </a></li>

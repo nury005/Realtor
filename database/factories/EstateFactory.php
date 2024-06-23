@@ -28,6 +28,7 @@ class EstateFactory extends Factory
             'location_id' => $location->id,
             'name' => fake()->name(),
             'description' => fake()->paragraph(),
+//            'phone' => rand(61000000,65999999),
             'price' => rand(50, 500),
             'viewed' => rand(0, 300),
             'favorited' => rand(0, 60),

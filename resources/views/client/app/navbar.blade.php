@@ -20,7 +20,7 @@
 {{--</div>--}}
 {{--<nav class="navbar navbar-expand-sm sticky-top bg-body-tertiary">--}}
 {{--<div class="container-xl">--}}
-{{--<a class="navbar-brand fs-3 fw-bold" href="{{route('/')}}">@lang('app.app-name')</a>--}}
+{{--<a class="navbar-brand fs-3 fw-bold" href="{{route('/')}}">@lang('app.appName')</a>--}}
 {{--<button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"--}}
 {{--aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
 {{--<div class="hamburger-toggle">--}}
@@ -92,7 +92,7 @@
     <div class="container d-flex align-items-center">
 
         <div class="logo me-auto">
-            <h1><a href="index.html">@lang('app.app-name')</a></h1>
+            <h1><a href="index.html">@lang('app.appName')</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>

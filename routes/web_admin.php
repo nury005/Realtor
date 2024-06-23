@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Admin\EstateController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
@@ -29,4 +29,7 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+
+        Route::resource('estates', EstateController::class);
+//        Route::resource('notes', NoteController::class);
     });

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('location_id')->references('id')->on('locations')->cascadeOnDelete();
             $table->string('name')->index();
             $table->text('description')->nullable();
+//            $table->unsignedInteger('phone');
             $table->Double('price')->default(0);
             $table->unsignedInteger('viewed')->default(0);
             $table->unsignedInteger('favorited')->default(0);

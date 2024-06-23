@@ -3,7 +3,7 @@
 <footer id="footer">
     <div class="container footer-bottom clearfix">
         <div class="copyright">
-            &copy; <strong><span>@lang('app.app-name')</span>.</strong> @lang('app.footer')
+            &copy; <strong><span>@lang('app.appName')</span>.</strong> @lang('app.footer')
         </div>
         <div class="credits">
             Powered by <a href="https://github.com/Atamyrat2005">Atamyrat</a>

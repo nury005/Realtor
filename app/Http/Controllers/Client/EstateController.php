@@ -150,8 +150,10 @@ class EstateController extends Controller
             'type_id' => 'required|max:255',
             'location_id' => 'required|max:255',
             'description' => 'required',
+//            'phone' => 'required'|'integer'|'min:61000000'|'max:71999999',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpg,png,jpeg',
+
         ]);
         // name
         $user = Auth::user()->id;

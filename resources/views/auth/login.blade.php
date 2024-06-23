@@ -13,23 +13,25 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="username" class="form-label">@lang('app.username') <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="phone" required autofocus>
-                        @error('username')
+                        <label for="phone" class="form-label">@lang('app.phone') <span class="text-danger">*</span></label>
+                        <div class="row g-2">
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-light" id="btn-password" value="0">+993</button>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" required autofocus>
+                            </div>
+                        </div>
+                        @error('phone')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">@lang('app.password') <span class="text-danger">*</span></label>
-                        <div class="row g-2">
-                            <div class="col">
+
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
-                            </div>
-                            <div class="col-auto">
-                                <button type="button" class="btn btn-light" id="btn-password" value="0"><i class="bi-eye-slash-fill"></i></button>
-                            </div>
-                        </div>
+
                         <script>
                             document.getElementById('btn-password').addEventListener('click', function () {
                                 if (this.value === '0') {
