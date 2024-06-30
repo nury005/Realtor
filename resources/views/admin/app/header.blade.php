@@ -5,9 +5,9 @@
         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
             <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">@lang('app.dashboard')</a></li>
             <li id="menu" class="nav-item"><a class="nav-link"  href="{{ route('admin.estates.index') }}">@lang('app.estates')</a></li>
-            <li id="menu" class="nav-item"><a class="nav-link" >
-                                              {{--href="{{ route('admin.notes.index') }}">@lang('app.notes')--}}
-                </a></li>
+            <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.contacts.index') }}">@lang('app.contacts')</a></li>
+
+
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link" data-bs-toggle="dropdown">@lang('app.lang') <i
                             class="bi bi-translate"></i></a>

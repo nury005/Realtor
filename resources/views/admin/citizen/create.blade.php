@@ -39,7 +39,7 @@
                         </label>
                         <input type="text" class="form-control @error('type') is-invalid @enderror"
                                name="type"
-                               id="type" value="{{ old('type') }}" maxlength="16" required>
+                               id="type" value="{{ old('type') }}" required>
                         @error('type')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
@@ -66,7 +66,23 @@
                     </div>
                 </div>
 
+
                 <div class="d-flex align-items-center justify-content-center">
+
+                    <div class="col-3 m-3">
+                        <label for="description" class="form-label fw-bold">
+                            @lang('app.description')
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control @error('description') is-invalid @enderror"
+                               name="type"
+                               id="description" value="{{ old('desçription') }}" required>
+                        @error('description')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
                     <div class="col-3 m-3">
                         <label for="price" class="form-label fw-bold">
                             @lang('app.price')

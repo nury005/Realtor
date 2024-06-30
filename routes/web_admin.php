@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\EstateController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,5 @@ Route::middleware('auth')
 
 
         Route::resource('estates', EstateController::class);
-//        Route::resource('notes', NoteController::class);
+        Route::resource('contacts', ContactController::class);
     });

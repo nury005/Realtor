@@ -59,62 +59,64 @@
                     <th scope="col">@lang('app.estate')</th>
                     <th scope="col">@lang('app.from')</th>
                     <th scope="col">@lang('app.result')</th>
-                    <th scope="col">@lang('app.note1')</th>
+                    <th scope="col">@lang('app.contact1')</th>
                     <th scope="col">@lang('app.time1')</th>
                     <th scope="col">@lang('app.time2')</th>
                     <th scope="col"><i class="bi-gear-fill"></i></th>
                 </tr>
                 </thead>
                 <tbody>
-                {{--@forelse($notes as $obj)--}}
-                    {{--<tr>--}}
-                        {{--<td>{{ $obj->id }}</td>--}}
-                        {{--<td>{{ $obj->estate->name_tm }}</td>--}}
-                        {{--<td>{!! $obj->from() !!}</td>--}}
-                        {{--<td>{{ $obj->result }}</td>--}}
-                        {{--<td>{{ $obj->note }}</td>--}}
-                        {{--<td>{{ $obj->created_at->format('d.m.Y') }}</td>--}}
-                        {{--<td>{{ $obj->updated_at->format('d.m.Y') }}</td>--}}
-                        {{--<td>--}}
-                            {{--<a href="{{ route('admin.notes.edit', $obj->id) }}" class="btn btn-success btn-sm my-1">--}}
-                                {{--<i class="bi-pencil"></i>--}}
-                            {{--</a>--}}
-                            {{--<button type="button" class="btn btn-secondary btn-sm my-1" data-bs-toggle="modal"--}}
-                                    {{--data-bs-target="#delete{{ $obj->id }}">--}}
-                                {{--<i class="bi-trash"></i>--}}
-                            {{--</button>--}}
-                            {{--<div class="modal fade" id="delete{{ $obj->id }}" tabindex="-1"--}}
-                                 {{--aria-labelledby="delete{{ $obj->id }}Label" aria-hidden="true">--}}
-                                {{--<div class="modal-dialog">--}}
-                                    {{--<div class="modal-content">--}}
-                                        {{--<div class="modal-header">--}}
-                                            {{--<div class="modal-title fs-5 fw-bold" id="delete{{ $obj->id }}Label">--}}
-                                                {{--{{ $obj->id }}.{{ $obj->estate->name }}--}}
-                                            {{--</div>--}}
-                                            {{--<button type="button" class="btn-close" data-bs-dismiss="modal"--}}
-                                                    {{--aria-label="Close"></button>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="modal-body">--}}
-                                            {{--@lang('app.delete-question')--}}
-                                        {{--</div>--}}
-                                        {{--<div class="modal-footer">--}}
-                                            {{--<form action="{{ route('admin.notes.destroy', $obj->id) }}" method="post">--}}
-                                                {{--@method('DELETE')--}}
-                                                {{--@csrf--}}
-                                                {{--<button type="submit" class="btn btn-secondary btn-sm"><i--}}
-                                                            {{--class="bi-trash"></i> @lang('app.delete')</button>--}}
-                                            {{--</form>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</td>--}}
-                    {{--</tr>--}}
-                {{--@empty--}}
-                    {{--<tr>--}}
-                        {{--<td colspan="16">@lang('app.no-notes')</td>--}}
-                    {{--</tr>--}}
-                {{--@endforelse--}}
+
+
+                @forelse($contacts as $obj)
+                    <tr>
+                        <td>{{ $obj->id }}</td>
+                        <td>{{ $obj->estate->name_tm }}</td>
+                        <td>{!! $obj->from() !!}</td>
+                        <td>{{ $obj->result }}</td>
+                        <td>{{ $obj->contact }}</td>
+                        <td>{{ $obj->created_at->format('d.m.Y') }}</td>
+                        <td>{{ $obj->updated_at->format('d.m.Y') }}</td>
+                        <td>
+                            <a href="{{ route('admin.contacts.edit', $obj->id) }}" class="btn btn-success btn-sm my-1">
+                                <i class="bi-pencil"></i>
+                            </a>
+                            <button type="button" class="btn btn-secondary btn-sm my-1" data-bs-toggle="modal"
+                                    data-bs-target="#delete{{ $obj->id }}">
+                                <i class="bi-trash"></i>
+                            </button>
+                            <div class="modal fade" id="delete{{ $obj->id }}" tabindex="-1"
+                                 aria-labelledby="delete{{ $obj->id }}Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="modal-title fs-5 fw-bold" id="delete{{ $obj->id }}Label">
+                                                {{ $obj->id }}.{{ $obj->estate->name }}
+                                            </div>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @lang('app.delete-question')
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{{ route('admin.contacts.destroy', $obj->id) }}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-secondary btn-sm"><i
+                                                            class="bi-trash"></i> @lang('app.delete')</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="16">@lang('app.contacts')</td>
+                    </tr>
+                @endforelse
                 </tbody>
             </table>
         </div>

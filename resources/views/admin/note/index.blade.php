@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
 @section('title')
-    @lang('app.notes')
+    @lang('app.contacts')
 @endsection
 @section('content')
     <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">
-            @lang('app.notes')
+            @lang('app.contacts')
         </h1>
         <form action="{{ url()->current() }}">
             <div>
@@ -82,7 +82,7 @@
                                         @lang('app.delete-question')
                                     </div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('admin.notes.destroy', $obj->id) }}" method="post">
+                                        <form action="{{ route('admin.contacts.destroy', $obj->id) }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-secondary btn-sm"><i

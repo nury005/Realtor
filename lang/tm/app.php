@@ -50,4 +50,8 @@ return [
     'email' => 'E-poçta',
     'phone' => 'Telefony',
     'contact' => 'Habarlaşmak',
+    'company' => 'Edaraň ady',
+    'info' => 'Mazmuny',
+    'createdAt' => 'Döredilen senesi',
+    'contacts' => 'Ýüz tutmalar',
 ];

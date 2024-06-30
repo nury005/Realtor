@@ -3,8 +3,7 @@
     <div class="list-group list-group-flush">
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.dashboard') }}">@lang('app.dashboard')</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.estates.index') }}">@lang('app.estates')</a>
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" >
-           {{--href="{{ route('admin.notes.index') }}">@lang('app.notes')--}}
-        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.contacts.index') }}">@lang('app.contacts')</a>
+
     </div>
 </div>
