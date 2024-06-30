@@ -15,7 +15,7 @@ class Location extends Model
     public $timestamps = false;
 
 
-    public function estates(): HasMany
+    public function estates()
     {
         return $this->hasMany(Estate::class);
     }
@@ -25,17 +25,17 @@ class Location extends Model
     {
         $locale = app()->getLocale();
         if ($locale == 'tm') {
-            return $this->name;
+            return $this->name_tm;
         }
 
 
         elseif ($locale == 'en') {
-            return $this->name_en ?: $this->name;
+            return $this->name_en ?: $this->name_tm;
         }
 
 
         else {
-            return $this->name;
+            return $this->name_tm;
         }
     }
 }

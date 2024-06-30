@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Estate;
 use App\Models\Contact;
+use App\Models\Location;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +20,7 @@ class EstateController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function index(Request $request)
     {
         $request->validate([
             'q' => 'nullable|string|max:255',
@@ -33,60 +35,69 @@ class EstateController extends Controller
         $f_perPage = $request->has('perPage') ? $request->perPage : 10;
 
         $objs = Estate::when($q, function ($query, $q) {
-    return $query->where(function ($query) use ($q) {
-        $query->orWhere('name', 'like', '%' . $q . '%');
-        $query->orWhere('type_id', 'like', '%' . $q . '%');
-        $query->orWhere('location_id', 'like', '%' . $q . '%');
-        $query->orWhere('price', 'like', '%' . $q . '%');
+            return $query->where(function ($query) use ($q) {
+                $query->orWhere('name', 'like', '%' . $q . '%');
+                $query->orWhere('type_id', 'like', '%' . $q . '%');
+                $query->orWhere('location_id', 'like', '%' . $q . '%');
+                $query->orWhere('price', 'like', '%' . $q . '%');
 //        $query->orWhere('phone', 'like', '%' . $q . '%');
-    });
-})
+            });
+        })
             ->when(isset($f_sort), function ($query) use ($f_sort) {
                 if ($f_sort == 'by-alphabet') {
 //                    $query->orderBy('secondName');
                 } elseif ($f_sort == 'bottom-to-top') {
-$query->orderBy('id', 'desc');
-} elseif ($f_sort == 'top-to-bottom') {
-$query->orderBy('id');
-} elseif ($f_sort == 'start-to-end') {
-$query->orderBy('birthday');
-} elseif ($f_sort == 'end-to-start') {
-$query->orderBy('birthday', 'desc');
-}
-//else {
-//    $query->orderBy('secondName');
-//}
-})
+                    $query->orderBy('id', 'desc');
+                } elseif ($f_sort == 'top-to-bottom') {
+                    $query->orderBy('id');
+                } elseif ($f_sort == 'start-to-end') {
+                    $query->orderBy('birthday');
+                } elseif ($f_sort == 'end-to-start') {
+                    $query->orderBy('birthday', 'desc');
+                }
+            })
+            ->with(['type', 'location', 'user'])
+            ->paginate($f_perPage, ['*'], 'page', $f_page)
+            ->withQueryString();
 
-->paginate($f_perPage, ['*'], 'page', $f_page)
-    ->withQueryString();
-
-return view('admin.citizen.index')
-    ->with([
-        'q' => $q,
-        'objs' => $objs,
-        'f_sort' => $f_sort,
-        'f_perPage' => $f_perPage,
-    ]);
-}
-
-/**
- * Show the form for creating a new resource.
- *
- * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
- */
-public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
-    {
-        return view('admin.citizen.create');
+        return view('admin.citizen.index')
+            ->with([
+                'q' => $q,
+                'objs' => $objs,
+                'f_sort' => $f_sort,
+                'f_perPage' => $f_perPage,
+            ]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Show the form for creating a new resource.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function store(Request $request)
+    public function create()
+    {
+        $types = Type::orderBy('id')
+            ->get();
+        $locations = Location::orderBy('id')
+            ->get();
+
+
+        return view('admin.citizen.create', [
+            'types' => $types,
+            'locations' => $locations,
+//            'options' => $options,
+        ]);
+
+    }
+
+/**
+ * Store a newly created resource in storage.
+ *
+ * @param \Illuminate\Http\Request $request
+ * @return \Illuminate\Http\RedirectResponse
+ */
+public
+function store(Request $request)
 {
     $request->validate([
         'name' => ['required', 'string', 'max:16'],
@@ -100,6 +111,7 @@ public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\
     $obj = Estate::create([
         'name' => $request->name,
         'type_id' => $request->type_id,
+        'user_id' => auth()->id(),
         'location_id' => $request->location_id,
         'description' => $request->description,
         'price' => $request->price,
@@ -121,25 +133,26 @@ public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\
         ]);
 }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+/**
+ * Display the specified resource.
+ *
+ * @param int $id
+ * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+ */
+public
+function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory | \Illuminate\Contracts\Foundation\Application
     {
         $obj = Estate::findOrFail($id);
 //        $notes = Note::with(['estate'])
 //            ->paginate(20)
 //            ->withQueryString();
 
-        return view('admin.citizen.show')
-            ->with([
-                'obj' => $obj,
+    return view('admin.citizen.show')
+        ->with([
+            'obj' => $obj,
 //                'notes' => $notes,
-            ]);
-    }
+        ]);
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -147,7 +160,7 @@ public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\
      * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory | \Illuminate\Contracts\Foundation\Application
     {
         $obj = Estate::findOrFail($id);
 

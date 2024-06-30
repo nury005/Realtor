@@ -37,9 +37,14 @@
                             @lang('app.type')
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control @error('type') is-invalid @enderror"
-                               name="type"
-                               id="type" value="{{ old('type') }}" required>
+                        <select class="form-select @error('type') is-invalid @enderror" name="type_id" id="type_id"
+                                required>
+                            @foreach($types as $type)
+                                <option value="{{ $type->id }}">
+                                    {{ $type->name_tm }}
+                                </option>
+                            @endforeach
+                        </select>
                         @error('type')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
@@ -51,14 +56,13 @@
                     @lang('app.location')
                     <span class="text-danger">*</span>
                     </label>
-                    <select class="form-select @error('location') is-invalid @enderror" name="location" id="location"
+                    <select class="form-select @error('location') is-invalid @enderror" name="location_id" id="location_id"
                     required>
-                    <option value="1" {{ old('location')  == 1 ? 'selected' : ''}}>@lang('app.ashgabat')</option>
-                    <option value="2" {{ old('location') == 2 ? 'selected' : ''}}>@lang('app.lebap')</option>
-                    <option value="3" {{ old('location') == 3 ? 'selected' : ''}}>@lang('app.mary')</option>
-                    <option value="4" {{ old('location') == 4 ? 'selected' : ''}}>@lang('app.balkan')</option>
-                    <option value="5" {{ old('location') == 5 ? 'selected' : ''}}>@lang('app.ahal')</option>
-                    <option value="6" {{ old('location') == 6 ? 'selected' : ''}}>@lang('app.dashoguz')</option>
+                        @foreach($locations as $location)
+                            <option value="{{ $location->id }}">
+                                {{ $location->name_tm }}
+                            </option>
+                        @endforeach
                     </select>
                     @error('location')
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -75,8 +79,8 @@
                             <span class="text-danger">*</span>
                         </label>
                         <input type="text" class="form-control @error('description') is-invalid @enderror"
-                               name="type"
-                               id="description" value="{{ old('desçription') }}" required>
+                               name="description"
+                               id="description" value="{{ old('description') }}" required>
                         @error('description')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror

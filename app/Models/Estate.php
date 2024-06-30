@@ -14,17 +14,17 @@ class Estate extends Model
         'id',
     ];
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function type(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function type()
     {
         return $this->belongsTo(Type::class);
     }
 
-    public function location(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function location()
     {
         return $this->belongsTo(Location::class);
     }

@@ -18,23 +18,22 @@ class LoginController extends Controller
     }
 
 
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
     {
-        try {
-            $request->authenticate();
-        } catch (ValidationException $e) {
-        }
+        $request->authenticate();
 
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME)
-            ->with([
-                'success' => 'Successfully logged in!',
+        if (Auth::User()->admin == 1) {
+            return redirect()->intended(RouteServiceProvider::ADMIN)->with(['success' => trans('app.welcome') . ' ' . auth()->user()->name]);
+        } else {
+            return redirect()->intended(RouteServiceProvider::HOME)->with([
+                'success' => trans('app.welcome') . ' ' . auth()->user()->name
             ]);
+        }
     }
 
 
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
 
@@ -42,9 +41,8 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/')
-            ->with([
-                'success' => 'Successfully logged out!',
-            ]);
+        return redirect()->intended(RouteServiceProvider::HOME)->with([
+            'success' => trans('app.logouted')
+        ]);
     }
 }

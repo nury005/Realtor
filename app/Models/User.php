@@ -18,7 +18,7 @@ class User extends Authenticatable
         'phone',
     ];
 
-    protected $hidden = ['password', 'admin'];
+    protected $hidden = ['password', 'admin', 'remember_token'];
 
     protected $dates = [
         'created_at',
