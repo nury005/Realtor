@@ -96,7 +96,7 @@
                             {{--<span class="input-group-text"></span>--}}
                             <input class="form-control" type="number" placeholder="@lang('app.price')" name="price"
                                    id="price" value="{{ old('price') }}"
-                                   min="0" max="65999999">
+                                   min="0" max="99999999999999999">
                         </div>
                         @error('price')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>

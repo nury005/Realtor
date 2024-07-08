@@ -103,8 +103,8 @@ function store(Request $request)
         'name' => ['required', 'string', 'max:16'],
         'type_id' => ['required', 'string', 'max:16'],
         'location_id' => ['required', 'string', 'max:16'],
-        'description' => ['required', 'string', 'max:11'],
-        'price' => ['required', 'integer', 'min:0', 'max:99999'],
+        'description' => ['required', 'string', 'max:100'],
+        'price' => ['required', 'integer', 'min:0', 'max:99999999999999999'],
         'image' => ['nullable', 'max:1000000', 'mimes:jpeg,jpg,png'],
     ]);
 
@@ -120,6 +120,9 @@ function store(Request $request)
 //        'phone' => $request->phone,
     ]);
 
+
+
+//
     if ($request->hasFile('image')) {
         $name = str()->random(10) . '.' . $request->image->extension();
         Storage::putFileAs('public/img', $request->image, $name);
@@ -127,11 +130,15 @@ function store(Request $request)
         $obj->update();
     }
 
+
     return to_route('admin.estates.index')
         ->with([
             'success' => trans('app.estate') . ' (' . $obj->name . ') ' . trans('app.added') . '!'
         ]);
+
+
 }
+
 
 /**
  * Display the specified resource.
@@ -160,15 +167,24 @@ function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\F
      * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory | \Illuminate\Contracts\Foundation\Application
+    public function edit()
     {
-        $obj = Estate::findOrFail($id);
+        $estate = Estate::where('id', $id)
+            ->firstOrFail();
+        $types = Type::orderBy('id')
+            ->get();
+        $locations = Location::orderBy('id')
+            ->get();
 
-        return view('admin.citizen.edit')
-            ->with([
-                'obj' => $obj,
-            ]);
+
+        return view('admin.citizen.edit', [
+            'estate' => $estate,
+            'types' => $types,
+            'locations' => $locations,
+//            'options' => $options,
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -177,22 +193,22 @@ function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\F
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id): \Illuminate\Http\RedirectResponse
+    public function update(Request $request)
 {
     $request->validate([
         'name' => ['required', 'string', 'max:16'],
-        'type' => ['required', 'string', 'max:16'],
+        'type_id' => ['required', 'string', 'max:16'],
         'location_id' => ['required', 'string', 'max:16'],
-        'description_id' => ['required', 'string', 'max:11'],
+        'description' => ['required', 'string', 'max:11'],
         'price' => ['required', 'integer', 'min:0', 'max:99999'],
 //        'phone' => ['required', 'integer', 'min:61000000', 'max:71999999'],
         'image' => ['nullable', 'max:1000000', 'mimes:jpeg,jpg,png'],
     ]);
 
-    $obj = Estate::updateOrCreate([
-        'id' => $id,
-    ], [
+    $obj = Estate::edit([
+//        'id' => $id,
         'name' => $request->name,
+        'user_id' => auth()->id(),
         'type_id' => $request->type_id,
         'location_id' => $request->location_id,
         'description' => $request->description,

@@ -14,7 +14,7 @@
 
                     <div class="mb-3">
                         <label for="phone" class="form-label">@lang('app.phone') <span class="text-danger">*</span></label>
-                        <div class="row g-2">
+                        <div class="row g-1">
                             <div class="col-auto">
                                 <button type="button" class="btn btn-light" id="btn-password" value="0">+993</button>
                             </div>

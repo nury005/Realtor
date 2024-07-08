@@ -10,16 +10,16 @@
         <i class="bi-chevron-right small"></i>
         <a class="text-decoration-none green">
             <a href="{{ route('admin.estates.index') }}" class="text-decoration-none green">
-                @lang('app.estate')
+                @lang('app.estates')
             </a>
         </a>
         <i class="bi-chevron-right small"></i>
-        {{$obj->name}}
+        {{--{{$obj->name}}--}}
     </div>
 
     <div class="row mb-3 justify-content-center">
         <div class="bg-body-tertiary rounded-3 m-3 p-3 text-center col-11">
-            <form action="{{ route('admin.estates.update', $obj->id) }}" enctype="multipart/form-data" method="post">
+            <form action="{{ route('admin.estates.update', $estate->id) }}" enctype="multipart/form-data" method="post">
                 @method('PUT')
                 @csrf
                 <div class="d-flex align-items-center justify-content-center">
@@ -29,38 +29,43 @@
                             <span class="text-danger">*</span>
                         </label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                               id="name" value="{{ $obj->name }}" maxlength="16" required autofocus>
+                               id="name"  value="{{ $estate->name }}" maxlength="16" required autofocus>
                         @error('name')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="col-3 m-3">
-                        <label for="type" class="form-label fw-bold">
+                        <label for="type_id" class="form-label fw-bold">
                             @lang('app.type')
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control @error('type') is-invalid @enderror"
-                               name="type"
-                               id="type" value="{{ $obj->type_id }}">
+                        <select class="form-select @error('type') is-invalid @enderror" name="type_id" id="type_id"
+                                required>
+                            @foreach($types as $type)
+                                <option value="{{ $type->id }}" {{ $type->id == $estate->type_id ? 'selected':'' }}>
+                                    {{ $type->name_tm }}
+                                </option>
+                            @endforeach
+                        </select>
                         @error('type')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
 
+
                     <div class="col-3 m-3">
-                        <label for="location" class="form-label fw-bold">
+                        <label for="location_id" class="form-label fw-bold">
                             @lang('app.location')
                             <span class="text-danger">*</span>
                         </label>
-                        <select class="form-select @error('location') is-invalid @enderror" name="location" id="location"
+                        <select class="form-select @error('location') is-invalid @enderror" name="location_id" id="location_id"
                                 required>
-                            <option value="1" {{ old('location_id')  == 1 ? 'selected' : ''}}>@lang('app.ashgabat')</option>
-                            <option value="2" {{ old('location_id') == 2 ? 'selected' : ''}}>@lang('app.lebap')</option>
-                            <option value="3" {{ old('location_id') == 3 ? 'selected' : ''}}>@lang('app.mary')</option>
-                            <option value="4" {{ old('location_id') == 4 ? 'selected' : ''}}>@lang('app.balkan')</option>
-                            <option value="5" {{ old('location_id') == 5 ? 'selected' : ''}}>@lang('app.ahal')</option>
-                            <option value="6" {{ old('location_id') == 6 ? 'selected' : ''}}>@lang('app.dashoguz')</option>
+                            @foreach($locations as $location)
+                                <option value="{{ $location->id }}" {{ $location->id == $estate->location_id ? 'selected':'' }}>
+                                    {{ $location->name_tm }}
+                                </option>
+                            @endforeach
                         </select>
                         @error('location')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -78,8 +83,8 @@
                             <span class="text-danger">*</span>
                         </label>
                         <input type="text" class="form-control @error('description') is-invalid @enderror"
-                               name="type"
-                               id="description" value="{{ $obj->description }}">
+                               name="description"
+                               id="description" value="{{ old('description') }}" required>
                         @error('description')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
@@ -93,8 +98,8 @@
                         <div class="input-group">
                             {{--<span class="input-group-text"></span>--}}
                             <input class="form-control" type="number" placeholder="@lang('app.price')" name="price"
-                                   id="price" value="{{ old('price') }}"
-                                   min="0" max="65999999">
+                                   id="price"  value="{{ $estate->price }}"
+                                   min="0" max="99999999999999999">
                         </div>
                         @error('price')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -112,7 +117,7 @@
                         </label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror"
                                name="image"
-                               id="image" value="{{ $obj->image }}">
+                               id="image" value="{{ old('image') }}">
                         @error('image')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror

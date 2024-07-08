@@ -54,4 +54,7 @@ return [
     'info' => 'Mazmuny',
     'createdAt' => 'Döredilen senesi',
     'contacts' => 'Ýüz tutmalar',
+    'added' => 'Goşuldy',
+    'welcome' => 'Hoş geldiňiz',
+    'logouted' => 'Çykyldy',
 ];

@@ -14,6 +14,10 @@ class Estate extends Model
         'id',
     ];
 
+    public static function edit($array)
+    {
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

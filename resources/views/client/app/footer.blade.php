@@ -6,7 +6,7 @@
             &copy; <strong><span>@lang('app.appName')</span>.</strong> @lang('app.footer')
         </div>
         <div class="credits">
-            Powered by <a href="https://github.com/Atamyrat2005">Atamyrat</a>
+            Powered by <a href="https://github.com/nury005">Nurjan</a>
         </div>
     </div>
 </footer><!-- End Footer -->
