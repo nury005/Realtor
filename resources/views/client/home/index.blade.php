@@ -3,5 +3,7 @@
     @lang('app.appName')
 @endsection
 @section('content')
+
+
     @include('client.home.index.popular')
 @endsection

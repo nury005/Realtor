@@ -119,6 +119,6 @@
     </div>
 </nav>
 
-<img class="img-fluid ms-5 " src="{{asset('img/ImportedPhoto_1718570078545.JPG')}}" style="width: 87rem">
+{{--<img class="img-fluid ms-5 " src="{{asset('img/ImportedPhoto_1718570078545.JPG')}}" style="width: 87rem">--}}
 
 

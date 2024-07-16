@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\EstateController;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\TypesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
@@ -32,5 +34,7 @@ Route::middleware('auth')
 
 
         Route::resource('estates', EstateController::class);
+        Route::resource('sliders', SliderController::class);
         Route::resource('contacts', ContactController::class);
+        Route::resource('types', TypesController::class);
     });

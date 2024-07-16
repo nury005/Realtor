@@ -18,7 +18,7 @@ class ContactController extends Controller
      * @return \Illuminate\Contracts\View\Factory
      */
 
-    public function index(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function index(Request $request)
     {
         $request->validate([
             'q' => 'nullable|string|max:255',

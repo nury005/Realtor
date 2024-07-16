@@ -57,4 +57,7 @@ return [
     'added' => 'Goşuldy',
     'welcome' => 'Hoş geldiňiz',
     'logouted' => 'Çykyldy',
+    'updated' => 'Üýtgedildi',
+    'sliders' => 'Slaýdlar',
+    'slider' => 'Slaýd',
 ];

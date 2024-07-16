@@ -3,6 +3,17 @@
     @lang('app.appName')
 @endsection
 @section('content')
+
+    <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+            <ul class="splide__list">
+                @foreach($sliders as $slider)
+                    <li class="splide__slide"><img src="{{ $slider->getImage() }}"></li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
     @foreach($typeEstates as $typeEstate)
         <div class="border-top">
             <div class="container-xl py-4">
@@ -22,4 +33,10 @@
             </div>
         </div>
     @endforeach
+    <script>
+        var splide = new Splide( '.splide' );
+        splide.mount();
+    </script>
+
+
 @endsection

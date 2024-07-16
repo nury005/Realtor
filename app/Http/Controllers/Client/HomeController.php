@@ -6,11 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Type;
 use App\Models\Estate;
 use Illuminate\Http\Request;
+use App\Models\Slider;
 
 class HomeController extends Controller
 {
     public function index()
     {
+
+        $sliders = Slider::get();
+
         $types = Type::withCount('estates')
             ->orderBy('name_tm')
             ->take(5)
@@ -45,6 +49,7 @@ class HomeController extends Controller
 
         return view('home.index')
             ->with([
+                'sliders' => $sliders,
                 'typeEstates' => $typeEstates,
 //                'change' => $change,
 //                'credit' => $credit,

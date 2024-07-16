@@ -167,7 +167,7 @@ function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\F
      * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit()
+    public function edit($id)
     {
         $estate = Estate::where('id', $id)
             ->firstOrFail();
@@ -181,6 +181,7 @@ function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\F
             'estate' => $estate,
             'types' => $types,
             'locations' => $locations,
+
 //            'options' => $options,
         ]);
     }
@@ -193,19 +194,21 @@ function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\F
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
 {
+    $estate = Estate::findOrFail($id);
+
     $request->validate([
         'name' => ['required', 'string', 'max:16'],
         'type_id' => ['required', 'string', 'max:16'],
         'location_id' => ['required', 'string', 'max:16'],
-        'description' => ['required', 'string', 'max:11'],
+        'description' => ['required', 'string'],
         'price' => ['required', 'integer', 'min:0', 'max:99999'],
 //        'phone' => ['required', 'integer', 'min:61000000', 'max:71999999'],
         'image' => ['nullable', 'max:1000000', 'mimes:jpeg,jpg,png'],
     ]);
 
-    $obj = Estate::edit([
+    $obj = Estate::updateOrCreate([
 //        'id' => $id,
         'name' => $request->name,
         'user_id' => auth()->id(),

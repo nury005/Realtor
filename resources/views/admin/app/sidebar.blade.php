@@ -4,6 +4,7 @@
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.dashboard') }}">@lang('app.dashboard')</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.estates.index') }}">@lang('app.estates')</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.contacts.index') }}">@lang('app.contacts')</a>
-
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.sliders.index') }}">@lang('app.sliders')</a>
+        {{--<a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('admin.types.index') }}">@lang('app.types')</a>--}}
     </div>
 </div>

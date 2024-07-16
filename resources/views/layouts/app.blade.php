@@ -16,6 +16,9 @@
     <script type="text/javascript" src="{{ asset('js/splide.min.js') }}"></script>
     {{--CSS--}}
 
+    {{--<script type="text/javascript" src="{{ asset('js/splide.min.js') }}"></script>--}}
+    {{--<link rel="stylesheet" href="{{ asset('css/splide.min.css') }}">--}}
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/fancybox.min.css') }}">
@@ -326,5 +329,6 @@
     }
 
 </script>
+
 </body>
 </html>

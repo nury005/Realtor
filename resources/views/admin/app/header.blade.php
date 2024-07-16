@@ -6,7 +6,8 @@
             <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">@lang('app.dashboard')</a></li>
             <li id="menu" class="nav-item"><a class="nav-link"  href="{{ route('admin.estates.index') }}">@lang('app.estates')</a></li>
             <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.contacts.index') }}">@lang('app.contacts')</a></li>
-
+            <li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.sliders.index') }}">@lang('app.sliders')</a></li>
+            {{--<li id="menu" class="nav-item"><a class="nav-link" href="{{ route('admin.types.index') }}">@lang('app.types')</a></li>--}}
 
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link" data-bs-toggle="dropdown">@lang('app.lang') <i

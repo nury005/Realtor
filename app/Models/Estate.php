@@ -18,6 +18,10 @@ class Estate extends Model
     {
     }
 
+    public static function findOrFail($id)
+    {
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
