@@ -24,7 +24,7 @@ return [
     'description' => 'Gysgaça',
     'image' => 'Surat',
     'update' => 'Täzele',
-    'add' => 'Bildiriş Goşmak',
+    'add' => 'Goşmak',
     'myPosts' => 'Bildirişlerim',
     'sort' => 'Tertibi',
     'perPage' => 'Sahypada',

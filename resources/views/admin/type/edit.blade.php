@@ -12,12 +12,12 @@
             @lang('app.types')
         </a>
         <i class="bi-chevron-right small"></i>
-        {{$obj->name}}
+        {{$obj->name_tm}}
     </div>
 
     <div class="row mb-3 justify-content-center">
         <div class="bg-body-tertiary rounded-3 m-3 p-3 text-center col-11">
-            <form action="{{ route('admin.booklangs.update', $obj->id) }}" enctype="multipart/form-data" method="post">
+            <form action="{{ route('admin.types.update', $obj->id) }}" enctype="multipart/form-data" method="post">
                 @method('PUT')
                 @csrf
                 <div class="d-flex align-items-center justify-content-center">
