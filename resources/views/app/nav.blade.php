@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-success bg-opacity-75" aria-label="Navbar">
+<nav class="navbar navbar-expand-lg bg-secondary bg-opacity-75" aria-label="Navbar">
     <div class="container-xl">
         <a class="navbar-type fw-bold {{ request()->routeIs('home') ? 'link-primary':'' }}" href="{{ route('home') }}">
             <img class="img-fluid" src="{{asset('img/logo-brand.svg')}}" style="height: 1.5rem">

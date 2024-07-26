@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
         ]);
         User::factory()->count(10)->create();
-        Estate::factory(50)->create();
+        Estate::factory(75)->create();
 
     }
 }

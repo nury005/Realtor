@@ -68,8 +68,8 @@
                     <td><img class="rounded" width="75" height="75" src="{{$obj->image()}}"></td>
 
                     <td><a class="text-decoration-none text-primary">{{ $obj->name }}</a></td>
-                    <td><a class="text-decoration-none text-primary">{{ $obj->type_id }}</a></td>
-                    <td><a class="text-decoration-none text-primary">{{ $obj->location_id }}</a></td>
+                    <td><a class="text-decoration-none text-primary">{{ $obj->type->getName() }}</a></td>
+                    <td><a class="text-decoration-none text-primary">{{ $obj->location->getName() }}</a></td>
                     <td><a class="text-decoration-none text-primary">{{ $obj->description }}</a></td>
                     <td><a class="text-decoration-none text-primary">{{ $obj->price }}</a></td>
 

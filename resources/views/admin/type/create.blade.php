@@ -25,7 +25,7 @@
                             Type of estate
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name_tm"
                                id="name" value="{{ old('name') }}" maxlength="16" required autofocus>
                         @error('name')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>

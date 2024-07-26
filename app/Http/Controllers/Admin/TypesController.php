@@ -31,15 +31,15 @@ class TypesController extends Controller
     public function store(Request $request)
     {
         $request->validatedData = $request -> validate ([
-            'name' => 'required|max:255'
+            'name_tm' => 'required|max:255'
         ]);
 
         // book
         $estate = new Type();
-        $estate->name = $request->name;
+        $estate->name_tm = $request->name_tm;
         $estate->save();
 
-        $success = trans('app.store-response', ['name' => $estate->name]);
+        $success = trans('app.store-response', ['name_tm' => $estate->name_tm]);
         return redirect('/admin/types')
             ->with([
                 'success' => $success,
@@ -59,13 +59,13 @@ class TypesController extends Controller
         $estate = Type::find($id)->first();
 
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name_tm' => 'required|string|max:255',
         ]);
 
-        $estate->name = $request->name;
+        $estate->name_tm = $request->name_tm;
         $estate->save();
 
-        $success = trans('app.update-response', ['name' => $estate->name]);
+        $success = trans('app.update-response', ['name_tm' => $estate->name_tm]);
         return redirect('/admin/types')
             ->with(['success' => $success]);
     }
@@ -75,7 +75,7 @@ class TypesController extends Controller
     {
         $estate = Type::where('id', $id)
             ->firstOrFail();
-        $success = trans('app.delete-response', ['name' => $estate->name]);
+        $success = trans('app.delete-response', ['name_tm' => $estate->name_tm]);
         $estate->delete();
 
         return redirect('/admin/types')

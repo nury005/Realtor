@@ -19,6 +19,9 @@ class TypeSeeder extends Seeder
             'Elitka',
             'Ýer jaý',
             'Daça',
+            'Howly',
+            'Arenda',
+            'Magazin Arenda',
         ];
 
         foreach ($types as $type) {

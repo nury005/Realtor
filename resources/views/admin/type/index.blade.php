@@ -27,7 +27,7 @@
             @foreach($objs as $obj)
                 <tr>
                     <td>{{ $obj->id }}</td>
-                    <td><a class="text-decoration-none text-primary">{{ $obj->name }}</a></td>
+                    <td><a class="text-decoration-none text-primary">{{ $obj->getName() }}</a></td>
                     <td>
                         <a href="{{ route('admin.types.edit', $obj->id) }}" class="btn btn-success btn-sm my-1">
                             <i class="bi-pencil"></i>

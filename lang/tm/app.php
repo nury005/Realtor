@@ -60,4 +60,5 @@ return [
     'updated' => 'Üýtgedildi',
     'sliders' => 'Slaýdlar',
     'slider' => 'Slaýd',
+    'profil' => 'Profil',
 ];

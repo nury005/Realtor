@@ -1,8 +1,8 @@
-<div class="border rounded shadow-sm bg-white p-3">
+<div class="border rounded shadow-sm bg-secondary bg-opacity-25 p-3">
     <a href="{{ route('estates.show', $estate->id) }}" class="d-flex justify-content-between">
         <div>
-            <div class="mb-1">
-                <img class="img-fluid w-100 rounded" src="{{$estate->image()}}" style="height: 150px; width: 350px" >
+            <div class="mb-1 ">
+                <img class="img-fluid w-100 rounded" src="{{$estate->image()}}" style="height: 200px; width: 350px" >
 
                 <div class="d-flex align-items-center justify-content-between">
 
@@ -32,11 +32,11 @@
     </div>
     <div class="d-flex justify-content-between align-items-center">
         <div>
-            <span class="text-primary fw-semibold">
+            <span class="text-dark fw-semibold">
                 {{ round($estate->price, 2) }} <small>TMT</small>
             </span>
         </div>
-        <div>
+        <div class="mb-5">
             <a href="{{ route('estates.show', $estate->id) }}" class="text-dark text-decoration-none">
                 <i class="bi-eye-fill"></i> {{ $estate->viewed }}
             </a>

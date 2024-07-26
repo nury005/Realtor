@@ -20,7 +20,10 @@ class LoginController extends Controller
 
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        try {
+            $request->authenticate();
+        } catch (ValidationException $e) {
+        }
 
         $request->session()->regenerate();
         if (Auth::User()->admin == 1) {

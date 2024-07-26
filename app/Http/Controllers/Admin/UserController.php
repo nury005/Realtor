@@ -17,7 +17,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function index()
     {
         $objs = User::orderBy('id')
             ->paginate(20)
@@ -34,7 +34,7 @@ class UserController extends Controller
  *
  * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
  */
-public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+public function create()
     {
         return view('admin.citizen.create');
     }
@@ -81,7 +81,7 @@ public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function show($id)
     {
         $obj = User::findOrFail($id);
 
@@ -97,7 +97,7 @@ public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function edit($id)
     {
         $obj = User::findOrFail($id);
 
@@ -107,13 +107,7 @@ public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\
             ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
 {
     //

@@ -22,5 +22,11 @@ class UserSeeder extends Seeder
             'phone' => 61000000,
             'password' => bcrypt('123456'),
         ]);
+
+//        $realtor->assignRole('realtor');
+////
+////        $realtor->realtorRecord()->create([
+////            'user_id' => $realtor->id,
+////        ]);
     }
 }

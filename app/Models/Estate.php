@@ -42,7 +42,21 @@ class Estate extends Model
         if ($this->image) {
             return Storage::url('public/estates/' . $this->image);
         } else {
-            return $this->image ? asset('img/'. $this->image) : asset('img/123.jpg');
+            return $this->image ? asset('img/'. $this->image) : asset('img/sssss.JPG');
+        }
+    }
+
+    public function getName()
+    {
+        $locale = app()->getLocale();
+        if ($locale == 'tm') {
+            return $this->name_tm;
+        }
+        elseif ($locale == 'en') {
+            return $this->name_en ?: $this->name_tm;
+        }
+        else {
+            return $this->name_tm;
         }
     }
 }

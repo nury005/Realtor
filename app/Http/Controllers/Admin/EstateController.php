@@ -147,7 +147,7 @@ function store(Request $request)
  * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
  */
 public
-function show($id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory | \Illuminate\Contracts\Foundation\Application
+function show($id)
     {
         $obj = Estate::findOrFail($id);
 //        $notes = Note::with(['estate'])

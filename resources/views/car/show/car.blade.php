@@ -79,7 +79,7 @@
             </div>
             <div class="d-flex justify-content-between align-items-center mt-2 fw-semibold">
                 <div>
-            <span class="text-primary">
+            <span class="text-dark">
                 ∙ {{ round($estate->price, 2) }} <small>TMT</small>
             </span>
                 </div>

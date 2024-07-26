@@ -28,7 +28,7 @@
             @foreach($objs as $obj)
                 <tr>
                     <td>{{ $obj->id }}</td>
-                    <td><img class="rounded-circle" width="50" height="50" src="{{ $obj->getImage() }}"></td>
+                    <td><img class="" width="50" height="50" src="{{ $obj->getImage() }}"></td>
                     <td>{{ $obj->name }}</td>
                     <td>
                         <a href="{{ route('admin.sliders.show', $obj->id) }}" class="btn btn-info btn-sm my-1">

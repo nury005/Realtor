@@ -28,7 +28,7 @@ class SliderController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:16'],
-            'image' => ['nullable', 'max:1000000', 'mimes:jpeg,jpg,png'],
+            'image' => ['nullable', 'max:1000000', 'mimes:jpeg,jpg,png,webp'],
         ]);
 
         $obj = Slider::create([
@@ -72,7 +72,7 @@ class SliderController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:16'],
-            'image' => ['nullable', 'max:1000000', 'mimes:jpeg,jpg,png'],
+            'image' => ['nullable', 'max:1000000', 'mimes:jpeg,jpg,png,webp'],
         ]);
 
         $obj = Slider::updateOrCreate([
